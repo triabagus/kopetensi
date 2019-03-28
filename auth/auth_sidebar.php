@@ -32,7 +32,9 @@
       <h6 class="collapse-header">Mahasiswa:</h6>
       <a class="collapse-item" href="data-mahasiswa.php" >Daftar Mahasiswa</a>
       <a class="collapse-item" href="#" data-toggle="modal" data-target="#addMahasiswaModal">Tambah Mahasiwa</a>
-      <a class="collapse-item" href="#" data-toggle="modal" data-target="#addSksModal">Tambah SKS</a>
+      <h6 class="collapse-header">Mata Kuliah:</h6>
+      <a class="collapse-item" href="data-matakuliah.php" >Daftar Mata Kuliah</a>
+      <a class="collapse-item" href="#" data-toggle="modal" data-target="#addSksModal">Tambah Mata Kuliah</a>
     </div>
   </div>
 </li>

@@ -146,11 +146,21 @@ class database{
         return $resUpdate;
     }
 
+    function editmatakuliah($id,$name,$sks){
+       
+        $resUpdate = mysqli_query($this->conn, "UPDATE mata_kuliah SET nama_matakuliah='$name', jumlah_sks='$sks' WHERE id='$id'");
+        return $resUpdate;
+    }
+
     function hapusmahasiswa($nim){
         $resDelete = mysqli_query($this->conn, "DELETE FROM mahasiswa WHERE nim='$nim'");
         return $resDelete;
     }
-
+    
+    function hapusmatakuliah($id){
+        $resDelete = mysqli_query($this->conn, "DELETE FROM mata_kuliah WHERE id='$id'");
+        return $resDelete;
+    }
 
     function insertsks($name,$sks){
         

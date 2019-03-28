@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 28, 2019 at 03:16 PM
+-- Generation Time: Mar 28, 2019 at 04:17 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.14-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -62,7 +62,12 @@ INSERT INTO `ambil_sks` (`id`, `id_mahasiswa`, `id_matakuliah`) VALUES
 (2, 111, 2),
 (4, 111, 4),
 (5, 112, 3),
-(6, 112, 5);
+(6, 112, 5),
+(7, 112, 1),
+(8, 113, 1),
+(9, 113, 3),
+(10, 113, 2),
+(11, 114, 1);
 
 -- --------------------------------------------------------
 
@@ -102,11 +107,10 @@ CREATE TABLE `mata_kuliah` (
 --
 
 INSERT INTO `mata_kuliah` (`id`, `nama_matakuliah`, `jumlah_sks`) VALUES
-(1, 'bahasa inggris', 4),
+(1, 'bahasa inggris', 5),
 (2, 'ipa', 2),
 (3, 'ips', 3),
-(4, 'indonesia', 5),
-(5, 'budaya', 6);
+(4, 'indonesia', 4);
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,12 @@ INSERT INTO `penilaian` (`id`, `id_mahasiswa`, `id_matakuliah`, `nilai`) VALUES
 (1, 111, 1, 2.5),
 (3, 112, 3, 3.6),
 (4, 111, 2, 3.9),
-(5, 112, 5, 2);
+(5, 112, 5, 2),
+(7, 112, 1, 2.7),
+(8, 113, 1, 3.4),
+(9, 113, 3, 1.2),
+(10, 113, 2, 2.5),
+(11, 114, 1, 2.3);
 
 --
 -- Indexes for dumped tables
@@ -179,19 +188,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ambil_sks`
 --
 ALTER TABLE `ambil_sks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
