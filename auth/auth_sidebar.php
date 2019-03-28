@@ -20,7 +20,9 @@
 </li>
 <!-- Divider -->
 <hr class="sidebar-divider">
-
+<?php 
+  if($_SESSION['roles'] == 0){
+?>
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -38,7 +40,9 @@
     </div>
   </div>
 </li>
-
+<?php
+  }
+?>
 <li class="nav-item">
   <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
     <i class="fas fa-fw fa-sign-out-alt"></i>

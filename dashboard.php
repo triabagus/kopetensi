@@ -27,7 +27,9 @@ include_once 'function.php';
       <div id="content">
 
         <?php include "auth/auth_topbar.php";?>
-
+<?php 
+  if($_SESSION['roles'] == 0){
+?>
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
@@ -35,7 +37,7 @@ include_once 'function.php';
                 <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="get">
                     <div class="input-group">
-                    <input type="text" name="id" class="form-control border-0 small" placeholder="Search for NIM..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" name="id" class="form-control border-0 small" placeholder="Search NIM mahasiswa ..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -45,7 +47,14 @@ include_once 'function.php';
                 </form>
                 <!-- Topbar Search -->
           <?php include "table.php";?>
-
+<?php }else{?>
+<!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Nilai Mahasiswa</h1>
+                <!-- Topbar Search -->
+          <?php include "table-nilai.php";?>
+<?php }?>
         </div>
         <!-- /.container-fluid -->
 
@@ -64,19 +73,27 @@ include_once 'function.php';
                 </div>
                 <div class="modal-body">
                     <form action="proses.php?aksi=tambahmahasiswa" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">NIM</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nim" class="form-control" id="nim" placeholder="Enter Your NIM" required>
-                        </div>
-                    </div>
+                   
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" required>
                         </div>
                     </div>
-                    
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your Password" required>
+                        </div>
+                    </div>
                     <button class="btn btn-primary" type="submit" name="submit">Tambah</button>
                     <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
                     </form>

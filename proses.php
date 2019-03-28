@@ -5,13 +5,13 @@
     $aksi=$_GET['aksi'];
 
         if($aksi=="tambahmahasiswa"){
-            $db->insertmahasiswa($_POST["nim"],$_POST["name"]);
+            $db->insertmahasiswa($_POST["name"],$_POST['username'],$_POST['password']);
             header("location:data-mahasiswa.php");    
         }elseif($aksi=="tambahsks"){
             $db->insertsks($_POST["name"],$_POST["sks"]);
-            header("location:dashboard.php");    
+            header("location:data-matakuliah.php");    
         }elseif($aksi=="editmahasiswa"){
-            $db->editmahasiswa($_POST["name"],$_POST["nim"]);
+            $db->editmahasiswa($_POST["name"],$_POST["nim"],$_POST['username'],$_POST['password']);
             header("location:data-mahasiswa.php");    
         }elseif($aksi=="hapusmahasiswa"){
             $db->hapusmahasiswa($_GET['nim']);

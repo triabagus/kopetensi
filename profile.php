@@ -53,16 +53,25 @@ include_once 'function.php';
                 </div>
                 <div class="modal-body">
                     <form action="proses.php?aksi=tambahmahasiswa" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">NIM</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nim" class="form-control" id="nim" placeholder="Enter Your NIM" required>
-                        </div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your Password" required>
                         </div>
                     </div>
                    

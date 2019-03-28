@@ -1,7 +1,7 @@
 
             <div class="card-body">
             <?php 
-            $id = $_GET['id'];
+            $id = $_SESSION['nim'];
               foreach($db->tampil_mahasiswa($id) as $r){
             ?>
             <p>Nim            : <?= $r['nim']; ?></p>

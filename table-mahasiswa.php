@@ -73,16 +73,27 @@
                                     </div>
                                     <div class="modal-body">
                                     <form action="proses.php?aksi=editmahasiswa" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">NIM</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" name="nim" class="form-control" id="nim" placeholder="Enter Your NIM" value="<?= $x['nim'];?>" required >
-                                            </div>
-                                        </div>
+                                        
+                                                <input type="hidden" name="nim" class="form-control" id="nim" placeholder="Enter Your NIM" value="<?= $x['nim'];?>" required >
+                                            
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Nama</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" value="<?= $x['nama'];?>" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Username</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your Password" required>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary" type="submit" name="submit">Update</button>

@@ -116,18 +116,25 @@ class database{
                    
     }
 
-    function insertmahasiswa($nim,$name){
+    function insertmahasiswa($name,$username,$password){
         
-        $resInsert = mysqli_query($this->conn, "INSERT INTO mahasiswa(nim,nama) VALUES ('$nim','$name')");
-         
+        $resInsert = mysqli_query($this->conn, "INSERT INTO mahasiswa(nama) VALUES ('$name')");
+        
+        $data = mysqli_query($this->conn, "SELECT * FROM mahasiswa ORDER BY nim DESC");
+        $d    = mysqli_fetch_array($data);
+        $nim  = $d['nim'];
+
+        $resInsertuser = mysqli_query($this->conn, "INSERT INTO admin(username,nim,passwords,roles) VALUES ('$username','$nim','$password',1)");
+        
+        return $data;
         return $resInsert;
-                   
+        return $resInsertuser;
     }
 
     function addsksmahasiswa($nim,$matakuliah){
         
         $resInsert = mysqli_query($this->conn, "INSERT INTO ambil_sks(id_mahasiswa,id_matakuliah) VALUES ('$nim','$matakuliah')");
-         
+        
         return $resInsert;
                    
     }
@@ -140,10 +147,13 @@ class database{
                    
     }
 
-    function editmahasiswa($name,$nim){
+    function editmahasiswa($name,$nim,$username,$password){
        
         $resUpdate = mysqli_query($this->conn, "UPDATE mahasiswa SET nim='$nim', nama='$name' WHERE nim='$nim'");
+
+        $resUpdates = mysqli_query($this->conn, "UPDATE admin SET username='$username', passwords='$password' WHERE nim='$nim'");
         return $resUpdate;
+        return $resUpdates;
     }
 
     function editmatakuliah($id,$name,$sks){
@@ -170,41 +180,25 @@ class database{
                    
     }
 
- 
-
 } 
 
 class sign extends database{
 
-    // proses registrasi
-    public function reg_user($username,$pass){
-        $sql="SELECT * FROM admin WHERE username='$username'"; // OR email='$email'
-        $cekUser = mysqli_query($this->conn,$sql);
-        $countUser  = $cekUser->num_rows;
-
-        if($countUser == 0){
-            $sqlReg="INSERT INTO admin(username,pass,akses_id,suka,gambar) VALUES ('$username','$pass',2,0,'')";
-            $resSqlReg=mysqli_query($this->conn,$sqlReg);
-
-            return $resSqlReg;
-        }else{
-            return false;
-        }
-    }
-
     // proses login
     public function loginCek_user($username,$password){
-        $sqlCekLogin="SELECT id,username FROM admin WHERE username='$username' AND password='$password'";
+        $sqlCekLogin="SELECT * FROM admin WHERE username='$username' AND passwords='$password'";
         // cek login
         $resultLogin = mysqli_query($this->conn,$sqlCekLogin);
         $userData    = mysqli_fetch_array($resultLogin);
         $countRow    = $resultLogin->num_rows;
 
-        if($countRow == 1){
+        if($countRow == 1 ){
             // membuat SESSION
             $_SESSION['login']     = true;
             $_SESSION['id']        = $userData['id'];
             $_SESSION['username']  = $userData['username'];
+            $_SESSION['roles']     = $userData['roles'];
+            $_SESSION['nim']       = $userData['nim'];
             return true;
         }else{
             return false;
