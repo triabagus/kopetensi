@@ -34,7 +34,7 @@
                       <td><?= $x['nilai']; ?></td>
                       <td>
                         <?php 
-                          if($x['nilai'] >= 3.6 && $x['nilai'] < 4.0){
+                          if($x['nilai'] >= 3.6 && $x['nilai'] <= 4.0){
                             echo "A";
                           }elseif($x['nilai'] >= 3.0 && $x['nilai'] < 3.6){
                             echo "B";
@@ -80,7 +80,7 @@
                           Total Nilai Komulatif :
                           <?php
                           foreach($db->tampil_nilai_komulatif($id) as $x){
-                              echo round($x['total']);
+                              echo number_format($x['total'],1);
                           }
                           ?>
                       </p>
@@ -88,7 +88,7 @@
                           IPK :
                           <?php
                           foreach($db->tampil_nilai_ipk($id) as $x){
-                              echo round($x['total']);
+                              echo number_format($x['total'],1);
                           }
                           ?>
                       </p>

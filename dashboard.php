@@ -11,7 +11,7 @@ include_once 'function.php';
     }
 ?>
 <?php
-        $db = new database();
+    $db = new database();
 ?>
 <?php include "auth/auth_header.php";?>
 
