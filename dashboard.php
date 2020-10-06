@@ -51,7 +51,14 @@ include_once 'function.php';
 <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Nilai Mahasiswa</h1>
+          <div class="row">
+            <div class="col-6">
+                <h1 class="h3 mb-4 text-gray-800">Nilai Mahasiswa</h1>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary float-right" href="print.php"><i class="fa fa-print"></i> Print Nilai</a>
+            </div>
+          </div>
                 <!-- Topbar Search -->
           <?php include "table-nilai.php";?>
 <?php }?>

@@ -120,7 +120,7 @@
                                         <div class="form-group row">
                                             
                                                 <input type="hidden" name="nim" class="form-control" id="nim" placeholder="Enter Your NIM" value="<?= $x['nim'];?>" required >
-                                           
+                                        
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Mata Kuliah</label>
@@ -168,7 +168,7 @@
                             </div>
                             <!-- Add Mahasiswa Modal-->
                         <!-- Add ambil SKS Modal-->
-                     <div class="modal fade" id="ambilSks<?= $x['nim'];?>" tabindex="-1" role="dialog" aria-labelledby="addMahasiswaModal" aria-hidden="true">
+                    <div class="modal fade" id="ambilSks<?= $x['nim'];?>" tabindex="-1" role="dialog" aria-labelledby="addMahasiswaModal" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content ">
                                     <div class="modal-header">

@@ -53,7 +53,6 @@ class database{
     }
 
     function tampil_mahasiswa($id){
-       
         $data = mysqli_query($this->conn, "SELECT * FROM mahasiswa  WHERE nim='$id'");
         while($d = mysqli_fetch_array($data)){
             $hasil[] = $d;
@@ -132,19 +131,31 @@ class database{
     }
 
     function addsksmahasiswa($nim,$matakuliah){
-        
+        $cekSiswa  = mysqli_query($this->conn,"SELECT * FROM ambil_sks WHERE id_mahasiswa ='$nim' AND id_matakuliah='$matakuliah' ");
+        $cekSks  = mysqli_num_rows($cekSiswa);
+
+        if($cekSks == 1):
+
+        else:
+
         $resInsert = mysqli_query($this->conn, "INSERT INTO ambil_sks(id_mahasiswa,id_matakuliah) VALUES ('$nim','$matakuliah')");
-        
         return $resInsert;
-                   
+        
+        endif;
     }
     
     function nilaisksmahasiswa($nim,$matakuliah,$nilai){
+        $cekSiswa  = mysqli_query($this->conn,"SELECT * FROM penilaian WHERE id_mahasiswa ='$nim' AND id_matakuliah='$matakuliah' ");
+        $cekNilai  = mysqli_num_rows($cekSiswa);
         
-        $resInsert = mysqli_query($this->conn, "INSERT INTO penilaian(id_mahasiswa,id_matakuliah,nilai) VALUES ('$nim','$matakuliah','$nilai')");
-         
-        return $resInsert;
-                   
+        if($cekNilai == 1):
+            $resUpdate = mysqli_query($this->conn, "UPDATE penilaian SET nilai='$nilai' WHERE id_mahasiswa='$nim' AND id_matakuliah='$matakuliah'");     
+            return $resUpdate;
+        else:
+            $resInsert = mysqli_query($this->conn, "INSERT INTO penilaian(id_mahasiswa,id_matakuliah,nilai) VALUES ('$nim','$matakuliah','$nilai')");     
+            return $resInsert;
+        endif;
+
     }
 
     function editmahasiswa($name,$nim,$username,$password){
